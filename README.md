@@ -1,70 +1,33 @@
-# Getting Started with Create React App
+# Utopia Engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
+1. [Description du projet](#description-du-projet)
+2. [Technologies](#technologies)
+3. [Installation](#installation)
 
-## Available Scripts
+## Description du projet
+Le projet est basé sur le PnP (Print & Play) gratuit **Utopia Engine**.
 
-In the project directory, you can run:
+![Utopia Engine](https://cf.geekdo-images.com/HTsjNQHQQMf029lmvlOFqA__itemrep/img/BX4Bcn68QCWJHaEIrCG5mTioiCE=/fit-in/246x300/filters:strip_icc()/pic1827127.jpg)
 
-### `yarn start`
+Vous jouez le rôle d'un vieil artificier nommé Isodoros qui tente de reconstruire l'***Utopia Engine***, un appareil légendaire datant d'un passé lointain et peut-être le seul espoir d'éviter la fin du monde qui approche rapidement. Vous devez récupérer les six pièces de la machine dans six régions dangereuses et assembler l'***Utopia Engine*** avant la fin du monde. Le jeu utilise une mécanique de dés simple pour simuler la recherche dans les régions sauvages, l'activation et l'assemblage d'artefacts puissants, et le combat avec les armes des artefacts.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+*Résumé traduit depuis https://boardgamegeek.com/boardgame/75223/utopia-engine*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Technologies
+* [React](https://fr.reactjs.org/) : version 17.0.2
 
-### `yarn test`
+## Installation
+Vous devez avoir [Node.js](https://nodejs.org/fr/) d'installer sur votre machine pour pouvoir lancer le projet en local, et avoir accès à un gestion de paquets de **Node.js** comme [yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Note : Les commandes ci-dessous peuvent être exécutées avec *npm* à la place de *yarn*.
 
-### `yarn build`
+Pour installer toutes les dépendences nécessaires : 
+```
+$ yarn install
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Pour lancer un server qui sera accessible sur [http://localhost:3000](http://localhost:3000) :
+```
+$ yarn start
+```
