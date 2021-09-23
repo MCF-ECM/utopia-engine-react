@@ -1,0 +1,10 @@
+.Layout {
+    display: grid;
+    grid-template-columns: auto max-content;
+    grid-gap: 20px;
+}
+
+.Window {
+    background-color: #89CFF0;
+    border-radius: 20px;
+}
