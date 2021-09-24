@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Dices from "../Dices/Dices";
 import classes from "./Instructions.module.css";
 import Table from "../../containers/Table/Table";
 
@@ -11,8 +10,7 @@ const instructions = (props) => {
         <div className={classes.Instructions}>
             <h1>Utopia Engine</h1>
             <h2 style={{ color: props.color }}>{props.title}</h2>
-            {props.title === 'Map' ? null :<Table name={props.title}/>}
-            <Dices />
+            {props.title === 'Map' ? null :<Table region={props.title}/>}
         </div>
     );
 };

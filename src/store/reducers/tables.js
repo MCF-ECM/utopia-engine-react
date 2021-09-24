@@ -3,7 +3,12 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     changed: false,
-    'Glassrock Canyon': [1, null, 3, null, 2, 3],
+    "Halebeard Peak": [null, null, null, null, null, null],
+    "The Great Wilds": [null, null, null, null, null, null],
+    "Root-Strangled Marshes": [null, null, null, null, null, null],
+    "Glassrock Canyon": [null, null, null, null, null, null],
+    "Ruined City of the Ancient": [null, null, null, null, null, null],
+    "The Fiery Maw": [null, null, null, null, null, null],
 };
 
 const changed = (state, action) => {

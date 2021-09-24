@@ -7,12 +7,14 @@ import './index.css';
 import App from './App';
 import dicesReducer from './store/reducers/dices';
 import instructionsReducer from './store/reducers/instructions';
+import inventoryReducer from './store/reducers/inventory';
 import tablesReducer from './store/reducers/tables';
 
 
 const rootReducer = combineReducers({
     dices: dicesReducer,
     instructions: instructionsReducer,
+    inventory: inventoryReducer,
     tables: tablesReducer,
 })
 
