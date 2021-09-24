@@ -1,0 +1,9 @@
+.Dices {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.Button {
+    padding: 5px;
+    text-align: center;
+}

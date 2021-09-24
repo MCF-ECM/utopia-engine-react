@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Dices from "../Dices/Dices";
 import classes from "./Instructions.module.css";
 
 
@@ -9,11 +10,12 @@ const instructions = (props) => {
         <div className={classes.Instructions}>
             <h1>Utopia Engine</h1>
             <h2 style={{ color: props.color }}>{props.title}</h2>
+            <Dices />
         </div>
     );
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return {
         title: state.instructions.title,
         color: state.instructions.color,

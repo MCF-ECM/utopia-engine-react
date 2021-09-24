@@ -5,11 +5,13 @@ import { createStore, combineReducers } from 'redux';
 
 import './index.css';
 import App from './App';
+import dicesReducer from './store/reducers/dices';
 import instructionsReducer from './store/reducers/instructions';
 
 
 const rootReducer = combineReducers({
     instructions: instructionsReducer,
+    dices: dicesReducer,
 })
 
 const  store = createStore(rootReducer);
