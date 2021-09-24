@@ -1,0 +1,21 @@
+.Pin {
+    height: 50px;
+}
+
+.Pin:hover {
+    cursor: pointer;
+}
+
+.Label {
+    display: none;
+}
+
+.Pin:hover + .Label {
+    display: block;
+    width: max-content;
+    margin: -100px 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid;
+    background-color: #fff;
+}

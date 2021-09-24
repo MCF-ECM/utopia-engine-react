@@ -1,0 +1,52 @@
+.Map {
+    margin: auto;
+    background-image: url("../../assets/images/map.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: calc(100vh - 80px);
+    width: calc(1.5 * (100vh - 80px));
+    position: relative;
+}
+
+.Peak {
+    height: 50px;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+}
+
+.Wilds {
+    height: 50px;
+    position: absolute;
+    top: 20%;
+    left: 70%;
+}
+
+.Root {
+    height: 50px;
+    position: absolute;
+    top: 45%;
+    left: 30%;
+}
+
+.Canyon {
+    height: 50px;
+    position: absolute;
+    top: 40%;
+    left: 65%;
+}
+
+.Ruined {
+    height: 50px;
+    position: absolute;
+    top: 75%;
+    left: 30%;
+}
+
+.Maw {
+    height: 50px;
+    position: absolute;
+    top: 80%;
+    left: 70%;
+}

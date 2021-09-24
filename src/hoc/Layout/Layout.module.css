@@ -1,10 +1,11 @@
 .Layout {
     display: grid;
-    grid-template-columns: auto max-content;
+    grid-template-columns: max-content auto;
     grid-gap: 20px;
 }
 
 .Window {
-    background-color: #89CFF0;
+    background-color: #fff;
     border-radius: 20px;
+    padding: 20px;
 }
