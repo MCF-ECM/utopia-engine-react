@@ -1,2 +1,3 @@
 export { updateTitle } from './instructions';
-export { newDices } from './dices';
+export { newDices, roll } from './dices';
+export { updateTable } from './tables';

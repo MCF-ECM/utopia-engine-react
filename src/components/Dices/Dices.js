@@ -8,7 +8,7 @@ import * as actionTypes from "../../store/actions/actionTypes";
 
 
 const dices = (props) => {
-    const button = props.quantity > 0 ?
+    const button = props.quantity > 0 && props.position === -1 ?
         <div className={classes.Button}>
             <Button onClick={() => props.roll()}>Lancer</Button>
         </div> :
@@ -16,10 +16,8 @@ const dices = (props) => {
     ;
 
     return (
-        <div>
-            <div className={classes.Dices}>
-                {props.dices.map((value, index) => <Dice key={index} value={value} />)}
-            </div>
+        <div className={classes.Dices}>
+            {props.dices.map((value, index) => <Dice key={index} value={value} />)}
             {button}
         </div>
     );
@@ -28,13 +26,14 @@ const dices = (props) => {
 const mapStateToProps = (state) => {
     return {
         quantity: state.dices.quantity,
+        position: state.dices.current,
         dices: state.dices.dices,
     };
 }
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        roll: () => dispatch({type: actionTypes.ROLL_DICE}),
+        roll: () => dispatch({type: actionTypes.ROLL_DICES}),
     }
 }
 

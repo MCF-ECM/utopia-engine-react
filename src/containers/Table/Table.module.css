@@ -1,0 +1,43 @@
+.Container {
+    padding: 5px;
+    text-align: center;
+}
+
+.Bloc {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+.Table {
+    width: max-content;
+    padding: 5px;
+    background-color: #463424;
+    display: grid;
+    grid-template-columns: 50px 50px 50px;
+    grid-gap: 5px;
+}
+
+.Cell,
+.Value {
+    background-color: #ffffff;
+    height: 50px;
+    width: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.Cell:hover {
+    cursor: pointer;
+}
+
+.Value {
+    background-color: #D2B48C;
+}
+
+.Buttons {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+}
