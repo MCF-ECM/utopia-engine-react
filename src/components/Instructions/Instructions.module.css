@@ -6,6 +6,7 @@
     border-radius: 20px;
 }
 
-.Instructions h1 {
+.Instructions h1,
+.Instructions h2 {
     text-align: center;
 }

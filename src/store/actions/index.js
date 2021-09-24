@@ -1,0 +1,1 @@
+export { updateTitle } from './instructions';
