@@ -16,6 +16,7 @@ Vous jouez le rôle d'un vieil artificier nommé Isodoros qui tente de reconstru
 
 ## Technologies
 * [React](https://fr.reactjs.org/) : version 17.0.2
+* [Redux](https://redux.js.org/) : version 4.1.1
 
 ## Installation
 Vous devez avoir [Node.js](https://nodejs.org/fr/) d'installer sur votre machine pour pouvoir lancer le projet en local, et avoir accès à un gestion de paquets de **Node.js** comme [yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/).
