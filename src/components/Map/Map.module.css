@@ -1,6 +1,8 @@
 .Map {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
     margin: auto;
-    background-image: url("../../assets/images/map.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -28,6 +30,7 @@
     position: absolute;
     top: 45%;
     left: 30%;
+
 }
 
 .Canyon {

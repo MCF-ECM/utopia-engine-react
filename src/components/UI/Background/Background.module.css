@@ -1,0 +1,30 @@
+.Background {
+    display: grid;
+    grid-template-columns: max-content auto;
+    grid-gap: 20px;
+}
+
+.Window {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px;
+    margin: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: calc(100vh - 80px);
+    width: calc(100vh - 80px);
+}
+
+.Instructions {
+    min-width: 20vw;
+    background-color: #fff;
+    color: #463424;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.Instructions h1,
+.Instructions h2 {
+    text-align: center;
+}

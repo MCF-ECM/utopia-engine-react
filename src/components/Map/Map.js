@@ -6,7 +6,10 @@ import classes from './Map.module.css';
 
 const map = () => {
     return (
-        <div className={classes.Map}>
+        <div
+            className={classes.Map}
+            style={{backgroundImage: `url("/images/map.png")`}}
+        >
             <span className={classes.Peak}>
                 <Pin
                     title="Halebeard Peak"

@@ -1,13 +1,20 @@
+import React, { Component } from 'react';
+import { Route, Switch } from 'react-router-dom';
+
 import Layout from './hoc/Layout/Layout';
-import Map from './components/Map/Map';
+import Search from './components/Search/Search';
 
 
-function App() {
-  return (
-    <Layout>
-      <Map />
-    </Layout>
-  );
+class App extends Component {
+    render() {
+        return (
+            <Layout>
+                <Switch>
+                    <Route path="/" component={Search} />
+                </Switch>
+            </Layout>
+        );
+    };
 }
 
 export default App;
