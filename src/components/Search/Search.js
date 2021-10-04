@@ -7,13 +7,13 @@ import Table from '../../containers/Table/Table';
 
 const search = (props) => {
     return (
-        <Background title={props.title}>
-            {props.title === 'Map'
+        <Background title={props.region}>
+            {props.region === 'Map'
                 ? null
                 :
                     <div>
-                        <h2 style={{ color: props.color }}>{props.title}</h2>
-                        <Table region={props.title}/>
+                        <h2 style={{ color: props.color }}>{props.region}</h2>
+                        <Table region={props.region}/>
                     </div>
             }
         </Background>
@@ -22,8 +22,8 @@ const search = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        title: state.instructions.title,
-        color: state.instructions.color,
+        region: state.regions.current,
+        color: state.regions.color,
         tables: state.tables,
     };
 };

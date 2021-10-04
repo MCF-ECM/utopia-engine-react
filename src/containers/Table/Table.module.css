@@ -11,6 +11,8 @@
 
 .Table {
     width: max-content;
+    height: max-content;
+    margin: auto 0;
     padding: 5px;
     background-color: #463424;
     display: grid;

@@ -12,37 +12,37 @@ const map = () => {
         >
             <span className={classes.Peak}>
                 <Pin
-                    title="Halebeard Peak"
+                    region="Halebeard Peak"
                     color="#808080"
                 />
             </span>
             <span className={classes.Wilds}>
                 <Pin
-                    title="The Great Wilds"
+                    region="The Great Wilds"
                     color="#556B2F"
                 />
             </span>
             <span className={classes.Root}>
                 <Pin
-                    title="Root-Strangled Marshes"
+                    region="Root-Strangled Marshes"
                     color="#FFB833"
                 />
             </span>
             <span className={classes.Canyon}>
                 <Pin
-                    title="Glassrock Canyon"
+                    region="Glassrock Canyon"
                     color="#FFFF66"
                 />
             </span>
             <span className={classes.Ruined}>
                 <Pin
-                    title="Ruined City of the Ancient"
+                    region="Ruined City of the Ancient"
                     color="#008080"
                 />
             </span>
             <span className={classes.Maw}>
                 <Pin
-                    title="The Fiery Maw"
+                    region="The Fiery Maw"
                     color="#CC8500"
                 />
             </span>

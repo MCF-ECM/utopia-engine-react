@@ -1,4 +1,4 @@
-export const UPDATE_TITLE = 'UPDATE_TITLE';
+export const UPDATE_REGION = 'UPDATE_REGION';
 
 export const NEW_DICES = 'NEW_DICES';
 export const ROLL_DICES = 'ROLL_DICES';

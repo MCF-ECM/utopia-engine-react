@@ -3,6 +3,7 @@ import * as actionTypes from '../actions/actionTypes';
 
 const initialState = {
     changed: false,
+    "Map": [],
     "Halebeard Peak": [null, null, null, null, null, null],
     "The Great Wilds": [null, null, null, null, null, null],
     "Root-Strangled Marshes": [null, null, null, null, null, null],
