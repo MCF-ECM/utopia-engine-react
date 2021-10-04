@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Life from '../Life/Life';
 import Map from '../../Map/Map';
 import classes from './Background.module.css';
 
@@ -20,6 +21,7 @@ const background = (props) => {
         <div className={classes.Background}>
             {window}
             <div className={classes.Instructions}>
+                <Life />
                 <h1>Utopia Engine</h1>
                 {props.children}
             </div>

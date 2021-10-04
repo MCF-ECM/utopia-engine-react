@@ -1,0 +1,14 @@
+.Life {
+    float: right;
+}
+
+.PV {
+    height: 90px;
+}
+
+.Red {
+    background-color: red;
+    opacity: 0.5;
+    height: 30px;
+    margin: -76px 0 0 31px;
+}
