@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
 import Points from '../../components/Points/Points';
-import * as actionTypes from '../../store/actions/actionTypes';
+import * as actions from '../../store/actions/index';
 import classes from './Table.module.css';
 
 
@@ -97,11 +97,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        changedTable: (changed) => dispatch({type: actionTypes.CHANGED_TABLE, changed: changed}),
-        updateTables: (name, table) => dispatch({type: actionTypes.UPDATE_TABLE, name: name, table: table}),
-        updatePosition: () => dispatch({type: actionTypes.UPDATE_POSITION_DICES}),
-        resetPosition: () => dispatch({type: actionTypes.REST_POSITION_DICES}),
-        newDices: () => dispatch({type: actionTypes.NEW_DICES, quantity: 2}),
+        changedTable: (changed) => dispatch(actions.changedTable(changed)),
+        updateTables: (name, table) => dispatch(actions.updateTable(name, table)),
+        updatePosition: () => dispatch(actions.updatePosition()),
+        resetPosition: () => dispatch(actions.resetPosition()),
+        newDices: () => dispatch(actions.newDices(2)),
     };
 };
 

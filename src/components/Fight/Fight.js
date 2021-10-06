@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Background from '../UI/Background/Background';
 import Dices from '../Dices/Dices';
-import * as actionTypes from '../../store/actions/actionTypes';
+import * as actions from '../../store/actions/index';
 
 
 const fight = (props) => {
@@ -51,7 +51,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        damage: () => dispatch({type: actionTypes.DAMAGE}),
+        damage: () => dispatch(actions.damage()),
     }
 }
 

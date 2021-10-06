@@ -2,9 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Button from '../UI/Button/Button';
-import Dice from "./Dice/Dice";
-import classes from "./Dices.module.css";
-import * as actionTypes from "../../store/actions/actionTypes";
+import Dice from './Dice/Dice';
+import classes from './Dices.module.css';
+import * as actions from '../../store/actions/index';
 
 
 const dices = (props) => {
@@ -16,7 +16,7 @@ const dices = (props) => {
         : props.reset
             ?
                 <div className={classes.Button}>
-                    <Button onClick={() => props.newDices(props.quantity)}>Reset</Button>
+                    <Button onClick={() => props.new(props.quantity)}>Reset</Button>
                 </div>
             : null
     ;
@@ -39,8 +39,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        roll: () => dispatch({type: actionTypes.ROLL_DICES}),
-        newDices: (quantity) => dispatch({type: actionTypes.NEW_DICES, quantity: quantity}),
+        roll: () => dispatch(actions.roll()),
+        new: (quantity) => dispatch(actions.newDices(quantity)),
     }
 }
 

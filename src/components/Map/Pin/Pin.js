@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actionTypes from '../../../store/actions/actionTypes';
+import * as actions from '../../../store/actions/index';
 import classes from './Pin.module.css';
 
 
@@ -9,7 +9,7 @@ const pin = (props) => {
     return (
         <span onClick={() => {
             props.updateRegion(props.region);
-            props.newDices(2);
+            props.newDices();
             props.changedTable();
         }}>
             <svg className={classes.Pin} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512" fill={props.color}>
@@ -25,9 +25,9 @@ const pin = (props) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        updateRegion: (region) => dispatch({type: actionTypes.UPDATE_REGION, region: region}),
-        newDices: (quantity) => dispatch({type: actionTypes.NEW_DICES, quantity: quantity}),
-        changedTable: () => dispatch({type: actionTypes.CHANGED_TABLE, changed: false}),
+        updateRegion: (region) => dispatch(actions.updateRegion(region)),
+        newDices: () => dispatch(actions.newDices(2)),
+        changedTable: () => dispatch(actions.changedTable(false)),
     }
 }
 

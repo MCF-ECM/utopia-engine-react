@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Button from '../UI/Button/Button';
-import * as actionTypes from "../../store/actions/actionTypes";
+import * as actions from "../../store/actions/index";
 import classes from './Points.module.css';
 
 
@@ -61,8 +61,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        newDices: () => dispatch({type: actionTypes.NEW_DICES, quantity: 2}),
-        updateMonster: (level) => dispatch({type: actionTypes.UPDATE_MONSTER, level: level})
+        newDices: () => dispatch(actions.newDices(2)),
+        updateMonster: (level) => dispatch(actions.updateMonster(level)),
     };
 };
 
