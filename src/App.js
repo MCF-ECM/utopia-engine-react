@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Redirect, Switch } from 'react-router-dom';
 
+import Fight from './components/Fight/Fight';
 import Layout from './hoc/Layout/Layout';
 import Search from './components/Search/Search';
 
@@ -10,7 +11,9 @@ class App extends Component {
         return (
             <Layout>
                 <Switch>
-                    <Route path="/" component={Search} />
+                    <Route path="/fight" exact component={Fight} />
+                    <Route path="/" exact component={Search} />
+                    <Redirect to="/" />
                 </Switch>
             </Layout>
         );

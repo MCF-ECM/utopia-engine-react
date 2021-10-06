@@ -1,3 +1,4 @@
-export { updateRegion } from './regions';
-export { newDices, roll } from './dices';
-export { updateTable } from './tables';
+export { newDices, roll, updatePosition, resetPosition } from './dices';
+export { updateRegion, updateMonster } from './regions';
+export { damage } from './life';
+export { changedTable, updateTable } from './tables';

@@ -10,10 +10,12 @@ const background = (props) => {
 
     if (props.title !== 'Map') {
         window =
-            <div
-                className={classes.Window}
-                style={{backgroundImage: `url("/images/${props.title}.png")`}}
-            />
+            <div className={classes.Window}>
+                <div
+                    className={classes.Image}
+                    style={{backgroundImage: `url("/images/${props.title}.png")`}}
+                />
+            </div>
         ;
     }
 

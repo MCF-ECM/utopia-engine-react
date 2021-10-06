@@ -8,11 +8,17 @@ import * as actionTypes from "../../store/actions/actionTypes";
 
 
 const dices = (props) => {
-    const button = props.quantity > 0 && props.position === -1 ?
-        <div className={classes.Button}>
-            <Button onClick={() => props.roll()}>Lancer</Button>
-        </div> :
-        null
+    const button = (props.quantity > 0 && props.position === -1)
+        ?
+            <div className={classes.Button}>
+                <Button onClick={() => props.roll()}>Lancer</Button>
+            </div>
+        : props.reset
+            ?
+                <div className={classes.Button}>
+                    <Button onClick={() => props.newDices(props.quantity)}>Reset</Button>
+                </div>
+            : null
     ;
 
     return (
@@ -34,6 +40,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPros = (dispatch) => {
     return {
         roll: () => dispatch({type: actionTypes.ROLL_DICES}),
+        newDices: (quantity) => dispatch({type: actionTypes.NEW_DICES, quantity: quantity}),
     }
 }
 

@@ -7,3 +7,10 @@ export const updateRegion = (region) => {
         region: region,
     };
 };
+
+export const updateMonster = (level) => {
+    return {
+        type: actionTypes.UPDATE_MONSTER,
+        level: level,
+    };
+};

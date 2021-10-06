@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
 import Points from '../../components/Points/Points';
-import * as actionTypes from "../../store/actions/actionTypes";
+import * as actionTypes from '../../store/actions/actionTypes';
 import classes from './Table.module.css';
 
 
@@ -14,7 +14,7 @@ class Table extends Component {
     updateValue = (index) => {
         let table = [...this.state.table];
 
-        if (this.props.position >= 0 && this.props.position < this.props.quantity) {
+        if (this.props.position >= 0 && this.props.position < 2) {
             if (!this.props.tables.changed) {
                 table = [...this.props.tables[this.props.region]];
             }
@@ -39,11 +39,11 @@ class Table extends Component {
         let dice = null;
         let points = null;
 
-        if (this.props.position === this.props.quantity) {
+        if (this.props.position === 2) {
             save =
                 <Button onClick={() => {
                     this.props.updateTables(this.props.region, this.state.table);
-                    this.props.newDices(this.props.quantity);
+                    this.props.newDices();
                 }}>
                     Sauvegarder
                 </Button>
@@ -61,6 +61,8 @@ class Table extends Component {
         if (this.props.tables[this.props.region].includes(null)) {
             dice = <Dices />;
         } else {
+            this.props.newDices();
+
             points = <Points table={table} region={this.props.region} />;
         }
 
@@ -90,7 +92,6 @@ const mapStateToProps = (state) => {
         tables: state.tables,
         dices: state.dices.dices,
         position: state.dices.current,
-        quantity: state.dices.quantity,
     };
 };
 
@@ -100,7 +101,7 @@ const mapDispatchToPros = (dispatch) => {
         updateTables: (name, table) => dispatch({type: actionTypes.UPDATE_TABLE, name: name, table: table}),
         updatePosition: () => dispatch({type: actionTypes.UPDATE_POSITION_DICES}),
         resetPosition: () => dispatch({type: actionTypes.REST_POSITION_DICES}),
-        newDices: (quantity) => dispatch({type: actionTypes.NEW_DICES, quantity: quantity}),
+        newDices: () => dispatch({type: actionTypes.NEW_DICES, quantity: 2}),
     };
 };
 
