@@ -6,3 +6,9 @@ export const damage = () => {
         type: actionTypes.DAMAGE,
     };
 };
+
+export const gameOver = () => {
+    return {
+        type: actionTypes.GAME_OVER,
+    };
+};

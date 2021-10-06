@@ -10,3 +10,5 @@ export const CHANGED_TABLE = 'CHANGED_TABLE';
 export const UPDATE_TABLE = 'UPDATE_TABLE';
 
 export const DAMAGE = 'DAMAGE';
+
+export const GAME_OVER = 'GAME_OVER';

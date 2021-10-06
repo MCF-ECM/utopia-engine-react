@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
 import Fight from './components/Fight/Fight';
+import GameOver from './components/UI/GameOver/GameOver';
 import Layout from './hoc/Layout/Layout';
 import Search from './components/Search/Search';
 
@@ -15,6 +16,7 @@ class App extends Component {
                     <Route path="/" exact component={Search} />
                     <Redirect to="/" />
                 </Switch>
+                <GameOver />
             </Layout>
         );
     };

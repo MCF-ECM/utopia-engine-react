@@ -60,6 +60,7 @@ const reducer = (state = initialState, action) => {
         case actionTypes.ROLL_DICES: return roll(state);
         case actionTypes.UPDATE_POSITION_DICES: return updatePosition(state);
         case actionTypes.REST_POSITION_DICES: return resetPosition(state);
+        case actionTypes.GAME_OVER: return initialState;
         default: return state;
     }
 };

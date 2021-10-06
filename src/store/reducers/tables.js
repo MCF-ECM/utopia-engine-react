@@ -31,6 +31,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.UPDATE_TABLE: return updateTable(state, action);
         case actionTypes.CHANGED_TABLE: return changed(state, action);
+        case actionTypes.GAME_OVER: return initialState;
         default: return state;
     }
 };
