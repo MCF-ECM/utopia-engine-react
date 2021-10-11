@@ -61,8 +61,6 @@ class Table extends Component {
         if (this.props.tables[this.props.region].includes(null)) {
             dice = <Dices />;
         } else {
-            this.props.newDices();
-
             points = <Points table={table} region={this.props.region} />;
         }
 
