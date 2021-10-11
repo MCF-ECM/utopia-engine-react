@@ -1,5 +1,5 @@
 import * as actionTypes from '../actions/actionTypes';
-
+import { getRandomDice } from '../../shared/utility';
 
 const initialState = {
     quantity: 0,
@@ -20,10 +20,6 @@ const newDices = (state, action) => {
         current: -1,
         dices: dices,
     };
-};
-
-const getRandomDice = () => {
-    return Math.floor(Math.random() * 6) + 1;
 };
 
 const roll = (state) => {

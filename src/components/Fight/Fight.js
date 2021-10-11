@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Background from '../UI/Background/Background';
 import Dices from '../Dices/Dices';
+import DropItem from '../../containers/DropItem/DropItem';
 import * as actions from '../../store/actions/index';
 
 
@@ -33,9 +34,9 @@ const fight = (props) => {
 
     return (
         <Background>
-            <h2 style={{ color: props.color }}>{props.monster}</h2>
+            <h2 style={{ color: props.color }}>{props.monster} (niveau {props.level})</h2>
             <Dices reset={!win} />
-            {win ? 'Vous avez battu le monster' : null}
+            {win ? <DropItem level={props.level} /> : null}
         </Background>
     );
 };
@@ -52,7 +53,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPros = (dispatch) => {
     return {
         damage: () => dispatch(actions.damage()),
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps, mapDispatchToPros)(fight);
