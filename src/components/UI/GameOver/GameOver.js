@@ -9,7 +9,7 @@ import * as actions from '../../../store/actions';
 
 const gameOver = (props) => {
     return (
-        <Modal show={props.pv < 1} title={"Game Over"}>
+        <Modal show={props.pv < 0} title={"Game Over"}>
             <h1 className={classes.GameOver}>Game Over</h1>
             <Button
                 onClick={props.gameOver}
