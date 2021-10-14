@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Button from '../Button/Button';
-import Modal from '../Modal/Modal';
+import Button from '../UI/Button/Button';
+import Modal from '../UI/Modal/Modal';
 import classes from './GameOver.module.css';
-import * as actions from '../../../store/actions';
+import * as actions from '../../store/actions';
 
 
 const gameOver = (props) => {

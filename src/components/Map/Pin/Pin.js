@@ -9,7 +9,6 @@ const pin = (props) => {
     return (
         <span onClick={() => {
             props.updateRegion(props.region);
-            props.newDices();
             props.changedTable();
         }}>
             <svg className={classes.Pin} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288 512" fill={props.color}>
@@ -26,7 +25,6 @@ const pin = (props) => {
 const mapDispatchToPros = (dispatch) => {
     return {
         updateRegion: (region) => dispatch(actions.updateRegion(region)),
-        newDices: () => dispatch(actions.newDices(2)),
         changedTable: () => dispatch(actions.changedTable(false)),
     }
 }

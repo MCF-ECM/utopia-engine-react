@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-import Button from '../../components/UI/Button/Button';
-import Dice from '../../components/Dices/Dice/Dice';
+import Button from '../../../components/UI/Button/Button';
+import Dice from '../../../components/Dices/Dice/Dice';
 import classes from './DropItem.module.css';
-import { getRandomDice } from '../../shared/utility';
+import { getRandomDice } from '../../../shared/utility';
 
 
 class DropItem extends Component {

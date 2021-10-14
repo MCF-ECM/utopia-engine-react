@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
 import Button from '../UI/Button/Button';
-import * as actions from "../../store/actions/index";
+import * as actions from '../../store/actions/index';
 import classes from './Points.module.css';
 
 
@@ -29,7 +29,7 @@ const points = (props) => {
         }
 
         text = `Vous avez attiré un monstre !`;
-        button = <Button onClick={props.history.push("/fight")}>Combattre</Button>;
+        button = <Button onClick={props.history.push('/fight')}>Combattre</Button>;
 
         props.updateMonster(level);
     } else if (total === 0) {
@@ -61,7 +61,6 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        newDices: () => dispatch(actions.newDices(2)),
         updateMonster: (level) => dispatch(actions.updateMonster(level)),
     };
 };

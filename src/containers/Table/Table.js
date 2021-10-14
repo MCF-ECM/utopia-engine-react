@@ -6,31 +6,55 @@ import Dices from '../../components/Dices/Dices';
 import Points from '../../components/Points/Points';
 import * as actions from '../../store/actions/index';
 import classes from './Table.module.css';
+import { getRandomDice } from '../../shared/utility';
 
 
 class Table extends Component {
-    state = {table: [...this.props.tables[this.props.region]]};
+    state = {
+        table: [...this.props.tables[this.props.region]],
+        dices: [null, null],
+        position: -1,
+    };
+
+    roll = () => {
+        const dices = [null, null];
+
+        for (let i = 0; i < 2; i++) {
+            dices[i] = getRandomDice();
+        }
+
+        this.setState({...this.state, dices: dices, position: 0});
+    }
 
     updateValue = (index) => {
         let table = [...this.state.table];
+        let position = this.state.position;
 
-        if (this.props.position >= 0 && this.props.position < 2) {
+        if (this.state.position >= 0 && this.state.position < 2) {
             if (!this.props.tables.changed) {
                 table = [...this.props.tables[this.props.region]];
             }
 
-            table[index] = this.props.dices[this.props.position];
+            table[index] = this.state.dices[this.state.position];
             this.props.changedTable(true);
-            this.props.updatePosition();
+            position += 1;
         }
 
-        this.setState({...this.state, table: table});
+        this.setState({...this.state, table: table, position: position});
+    };
+
+    save = () => {
+        this.props.updateTables(this.props.region, this.state.table);
+        this.setState({
+            dices: [null, null],
+            position: -1,
+        });
     };
 
     reset = () => {
-        this.props.resetPosition();
         this.props.changedTable(false);
-    }
+        this.setState({...this.state, position: 0});
+    };
 
     render() {
         let save = null;
@@ -39,18 +63,11 @@ class Table extends Component {
         let dice = null;
         let points = null;
 
-        if (this.props.position === 2) {
-            save =
-                <Button onClick={() => {
-                    this.props.updateTables(this.props.region, this.state.table);
-                    this.props.newDices();
-                }}>
-                    Sauvegarder
-                </Button>
-            ;
+        if (this.state.position > 1) {
+            save = <Button onClick={this.save}>Sauvegarder</Button>;
         }
 
-        if (this.props.position > 0) {
+        if (this.state.position > 0) {
             reset = <Button style={{ backgroundColor: 'red' }} onClick={this.reset}>Effacer</Button>;
         }
 
@@ -59,7 +76,13 @@ class Table extends Component {
         }
 
         if (this.props.tables[this.props.region].includes(null)) {
-            dice = <Dices />;
+            dice =
+                <Dices
+                    dices={this.state.dices}
+                    position={this.state.position}
+                    roll={this.roll}
+                />
+            ;
         } else {
             points = <Points table={table} region={this.props.region} />;
         }
@@ -88,8 +111,6 @@ class Table extends Component {
 const mapStateToProps = (state) => {
     return {
         tables: state.tables,
-        dices: state.dices.dices,
-        position: state.dices.current,
     };
 };
 
@@ -97,9 +118,6 @@ const mapDispatchToPros = (dispatch) => {
     return {
         changedTable: (changed) => dispatch(actions.changedTable(changed)),
         updateTables: (name, table) => dispatch(actions.updateTable(name, table)),
-        updatePosition: () => dispatch(actions.updatePosition()),
-        resetPosition: () => dispatch(actions.resetPosition()),
-        newDices: () => dispatch(actions.newDices(2)),
     };
 };
 

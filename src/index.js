@@ -6,14 +6,12 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
-import dicesReducer from './store/reducers/dices';
 import lifeReducer from './store/reducers/life';
 import regionsReducer from './store/reducers/regions';
 import tablesReducer from './store/reducers/tables';
 
 
 const rootReducer = combineReducers({
-    dices: dicesReducer,
     life: lifeReducer,
     regions: regionsReducer,
     tables: tablesReducer,
