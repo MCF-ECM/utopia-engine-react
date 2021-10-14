@@ -11,7 +11,9 @@ import { getRandomDice } from '../../../shared/utility';
 class DropItem extends Component {
     state = {dice: null};
 
-    goBack = () => this.props.history.push('/');
+    goBack = () => this.props.history.push('/search');
+
+    goMap = () => this.props.history.push('/');
 
     render() {
         let button;
@@ -25,7 +27,11 @@ class DropItem extends Component {
             button = <Button>Récupérer</Button>;
         } else {
             message = 'Le monstre n\'a laissé pas tomber de composant.';
-            button = <Button onClick={this.goBack}>Repartir</Button>;
+            button =
+                <div>
+                    <Button onClick={this.goBack}>Repartir</Button>
+                    <Button onClick={this.goMap} style={{margin: 10}}>Changer de zone</Button>
+                </div>;
         }
 
         return (

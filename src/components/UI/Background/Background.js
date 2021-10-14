@@ -1,7 +1,7 @@
 import React from 'react';
 
 import Life from '../../Life/Life';
-import Map from '../../Map/Map';
+import Map from '../../Home/Map/Map';
 import classes from './Background.module.css';
 
 

@@ -15,7 +15,7 @@ class Fight extends Component {
 
     roll = () => {
         const dices = [null, null];
-        let win = this.state.win;
+        let win = false;
 
         for (let i = 0; i < 2; i++) {
             dices[i] = getRandomDice();
@@ -43,7 +43,7 @@ class Fight extends Component {
         let next = null;
 
         if (this.props.monster === "") {
-            redirect = <Redirect to="/" />;
+            redirect = <Redirect to="/search" />;
         }
 
         if (this.props.pv === 0) {

@@ -2,13 +2,10 @@ import * as actionTypes from '../actions/actionTypes';
 
 
 const initialState = {
-    current: "Map",
-    color: '#463424',
+    current: "",
+    color: "",
     monster: "",
     level: "",
-    "Map": {
-        color: '#463424',
-    },
     "Halebeard Peak": {
         color: "#808080",
         component: "Silver",
