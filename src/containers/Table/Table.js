@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
 
 import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
 import Points from '../../components/Points/Points';
-import * as actions from '../../store/actions/index';
 import classes from './Table.module.css';
 import { getRandomDice } from '../../shared/utility';
 
 
 class Table extends Component {
     state = {
-        table: [...this.props.tables[this.props.region]],
+        table: [null, null, null, null, null, null],
+        oldTable: [null, null, null, null, null, null],
+        changed: false,
         dices: [null, null],
         position: -1,
     };
@@ -29,37 +29,47 @@ class Table extends Component {
     updateValue = (index) => {
         let table = [...this.state.table];
         let position = this.state.position;
+        let changed = this.state.changed;
 
         if (this.state.position >= 0 && this.state.position < 2) {
-            if (!this.props.tables.changed) {
-                table = [...this.props.tables[this.props.region]];
+            if (!this.state.changed) {
+                table = [...this.state.oldTable];
             }
 
             table[index] = this.state.dices[this.state.position];
-            this.props.changedTable(true);
+            changed = true;
             position += 1;
         }
 
-        this.setState({...this.state, table: table, position: position});
+        this.setState({
+            ...this.state,
+            table: table,
+            changed: changed,
+            position: position,
+        });
     };
 
     save = () => {
-        this.props.updateTables(this.props.region, this.state.table);
         this.setState({
+            ...this.state,
+            oldTable: [...this.state.table],
             dices: [null, null],
             position: -1,
         });
     };
 
     reset = () => {
-        this.props.changedTable(false);
-        this.setState({...this.state, position: 0});
+        this.setState({
+            ...this.state,
+            table: [...this.state.oldTable],
+            changed: false,
+            position: 0
+        });
     };
 
     render() {
         let save = null;
         let reset = null;
-        let table = this.state.table;
         let dice = null;
         let points = null;
 
@@ -71,11 +81,7 @@ class Table extends Component {
             reset = <Button style={{ backgroundColor: 'red' }} onClick={this.reset}>Effacer</Button>;
         }
 
-        if (!this.props.tables.changed) {
-            table = [...this.props.tables[this.props.region]];
-        }
-
-        if (this.props.tables[this.props.region].includes(null)) {
+        if (this.state.oldTable.includes(null)) {
             dice =
                 <Dices
                     dices={this.state.dices}
@@ -84,14 +90,14 @@ class Table extends Component {
                 />
             ;
         } else {
-            points = <Points table={table} region={this.props.region} />;
+            points = <Points table={this.state.oldTable} region={this.props.region} />;
         }
 
         return (
             <div>
                 <div className={classes.Bloc}>
                     <div className={classes.Table}>
-                        {table.map((value, index) => value ?
+                        {this.state.table.map((value, index) => value ?
                             <div key={index} className={classes.Value}>{value}</div> :
                             <div key={index} className={classes.Cell} onClick={() => this.updateValue(index)}>{value}</div>
                         )}
@@ -108,17 +114,4 @@ class Table extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        tables: state.tables,
-    };
-};
-
-const mapDispatchToPros = (dispatch) => {
-    return {
-        changedTable: (changed) => dispatch(actions.changedTable(changed)),
-        updateTables: (name, table) => dispatch(actions.updateTable(name, table)),
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToPros)(Table);
+export default Table;

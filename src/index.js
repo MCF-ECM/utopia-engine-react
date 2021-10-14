@@ -8,14 +8,12 @@ import './index.css';
 import App from './App';
 import lifeReducer from './store/reducers/life';
 import regionsReducer from './store/reducers/regions';
-import tablesReducer from './store/reducers/tables';
 
 
 const rootReducer = combineReducers({
     life: lifeReducer,
     regions: regionsReducer,
-    tables: tablesReducer,
-})
+});
 
 const  store = createStore(rootReducer);
 

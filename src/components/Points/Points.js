@@ -8,6 +8,11 @@ import classes from './Points.module.css';
 
 
 const points = (props) => {
+    const metMonster = (level) => {
+        props.updateMonster(level);
+        props.history.push('/fight');
+    }
+
     const total = props.table[0] * 100 + props.table[1] * 10 + props.table[2]
         - (props.table[3] * 100 + props.table[4] * 10 + props.table[5]);
 
@@ -29,9 +34,7 @@ const points = (props) => {
         }
 
         text = `Vous avez attiré un monstre !`;
-        button = <Button onClick={props.history.push('/fight')}>Combattre</Button>;
-
-        props.updateMonster(level);
+        button = <Button onClick={() => metMonster(level)}>Combattre</Button>;
     } else if (total === 0) {
         text = `Vous avez trouvé un artéfact activé : ${props.inventory[props.region].artifact} !`;
         button = <Button>Récupérer {props.inventory[props.region].artifact} activé</Button>;

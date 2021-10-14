@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import Button from '../../../components/UI/Button/Button';
 import Dice from '../../../components/Dices/Dice/Dice';
@@ -9,6 +10,8 @@ import { getRandomDice } from '../../../shared/utility';
 
 class DropItem extends Component {
     state = {dice: null};
+
+    goBack = () => this.props.history.push('/');
 
     render() {
         let button;
@@ -22,7 +25,7 @@ class DropItem extends Component {
             button = <Button>Récupérer</Button>;
         } else {
             message = 'Le monstre n\'a laissé pas tomber de composant.';
-            button = <Button>Repartir</Button>;
+            button = <Button onClick={this.goBack}>Repartir</Button>;
         }
 
         return (
@@ -42,4 +45,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps)(DropItem);
+export default connect(mapStateToProps)(withRouter(DropItem));
