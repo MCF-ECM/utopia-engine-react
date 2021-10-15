@@ -7,12 +7,12 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import lifeReducer from './store/reducers/life';
-import regionsReducer from './store/reducers/regions';
+import regionReducer from './store/reducers/region';
 
 
 const rootReducer = combineReducers({
     life: lifeReducer,
-    regions: regionsReducer,
+    region: regionReducer,
 });
 
 const  store = createStore(rootReducer);

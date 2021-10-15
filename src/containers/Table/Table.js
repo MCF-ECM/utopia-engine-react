@@ -90,7 +90,7 @@ class Table extends Component {
                 />
             ;
         } else {
-            points = <Points table={this.state.oldTable} region={this.props.region} />;
+            points = <Points id={this.props.id} table={this.state.oldTable} region={this.props.region} />;
         }
 
         return (

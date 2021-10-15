@@ -74,9 +74,9 @@ class Fight extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        color: state.regions.color,
-        level: state.regions.level,
-        monster: state.regions.monster,
+        color: state.region.color,
+        level: state.region.level,
+        monster: state.region.monster,
         pv: state.life.pv,
     };
 };

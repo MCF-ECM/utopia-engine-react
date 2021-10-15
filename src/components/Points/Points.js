@@ -9,8 +9,15 @@ import classes from './Points.module.css';
 
 const points = (props) => {
     const metMonster = (level) => {
-        props.updateMonster(level);
-        props.history.push('/fight');
+        fetch(`/api/monster?id=${props.id}&level=${level}`)
+            .then((res) => res.json())
+            .then(
+                (result) => {
+                    props.updateMonster(level, result.monster);
+                    props.history.push('/fight');
+                },
+                (err) => {console.log(err)}
+            );
     }
 
     const total = props.table[0] * 100 + props.table[1] * 10 + props.table[2]
@@ -36,15 +43,15 @@ const points = (props) => {
         text = `Vous avez attiré un monstre !`;
         button = <Button onClick={() => metMonster(level)}>Combattre</Button>;
     } else if (total === 0) {
-        text = `Vous avez trouvé un artéfact activé : ${props.inventory[props.region].artifact} !`;
-        button = <Button>Récupérer {props.inventory[props.region].artifact} activé</Button>;
+        text = `Vous avez trouvé un artéfact activé !`;
+        button = <Button>Récupérer l'artifact activé</Button>;
     } else if (total < 11) {
-        text = `Vous avez trouvé un artéfact inactivé : ${props.inventory[props.region].artifact} !`;
+        text = `Vous avez trouvé un artéfact inactivé !`;
         button =
-            <Button>Récupérer {props.inventory[props.region].artifact} inactivé</Button>;
+            <Button>Récupérer l'artifact inactivé</Button>;
     } else {
-        text = `Vous avez trouvé un composant : ${props.inventory[props.region].component} !`;
-        button = <Button>Récupérer {props.inventory[props.region].component}</Button>;
+        text = `Vous avez trouvé un composant !`;
+        button = <Button>Récupérer le component</Button>;
     }
 
     return (
@@ -56,16 +63,10 @@ const points = (props) => {
     );
 }
 
-const mapStateToProps = (state) => {
-    return {
-        inventory: state.regions,
-    };
-};
-
 const mapDispatchToPros = (dispatch) => {
     return {
-        updateMonster: (level) => dispatch(actions.updateMonster(level)),
+        updateMonster: (level, monster) => dispatch(actions.updateMonster(level, monster)),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToPros)(withRouter(points));
+export default connect(null, mapDispatchToPros)(withRouter(points));

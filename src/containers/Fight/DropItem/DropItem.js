@@ -47,7 +47,7 @@ class DropItem extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        level: state.regions.level,
+        level: state.region.level,
     };
 };
 

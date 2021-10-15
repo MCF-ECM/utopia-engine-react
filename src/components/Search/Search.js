@@ -14,11 +14,11 @@ const search = (props) => {
     }
 
     return (
-        <Background title={props.region}>
+        <Background title={props.name}>
             {redirect}
             <div>
-                <h2 style={{ color: props.color }}>{props.region}</h2>
-                <Table region={props.region}/>
+                <h2 style={{ color: props.color }}>{props.name}</h2>
+                <Table id={props.id} region={props.name}/>
             </div>
         </Background>
     );
@@ -26,8 +26,9 @@ const search = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        region: state.regions.current,
-        color: state.regions.color,
+        id: state.region.id,
+        name: state.region.name,
+        color: state.region.color,
         tables: state.tables,
     };
 };

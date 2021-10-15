@@ -1,2 +1,2 @@
-export { updateRegion, updateMonster } from './regions';
+export { updateRegion, updateMonster } from './region';
 export { damage, gameOver } from './life';
