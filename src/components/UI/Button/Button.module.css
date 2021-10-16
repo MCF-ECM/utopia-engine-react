@@ -9,3 +9,8 @@
 .Button:hover {
     cursor: pointer;
 }
+
+.Button:disabled {
+    opacity: 0;
+    cursor: unset;
+}

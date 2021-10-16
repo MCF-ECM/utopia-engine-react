@@ -7,6 +7,7 @@ import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
 import DropItem from './DropItem/DropItem';
 import * as actions from '../../store/actions';
+import classes from './Fight.module.css';
 import { getRandomDice } from '../../shared/utility';
 
 
@@ -48,7 +49,7 @@ class Fight extends Component {
 
         if (this.props.pv === 0) {
             next =
-                <div>
+                <div className={classes.Faint}>
                     <p>Vous vous êtes évanoui et le monster est parti.</p>
                     <Button>Se Reposer</Button>
                 </div>

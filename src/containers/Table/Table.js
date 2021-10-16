@@ -68,18 +68,22 @@ class Table extends Component {
     };
 
     render() {
-        let save = null;
-        let reset = null;
         let dice = null;
-        let points = null;
-
-        if (this.state.position > 1) {
-            save = <Button onClick={this.save}>Sauvegarder</Button>;
-        }
-
-        if (this.state.position > 0) {
-            reset = <Button style={{ backgroundColor: 'red' }} onClick={this.reset}>Effacer</Button>;
-        }
+        let right = 
+            <div className={classes.Buttons}>
+                <Button
+                    style={{ backgroundColor: 'red' }}
+                    onClick={this.reset}
+                    disabled={this.state.position < 1}
+                >
+                    Effacer
+                </Button>
+                <Button onClick={this.save} disabled={this.state.position < 2}>
+                    Sauvegarder
+                </Button>
+            </div>
+        ;
+                        
 
         if (this.state.oldTable.includes(null)) {
             dice =
@@ -90,7 +94,7 @@ class Table extends Component {
                 />
             ;
         } else {
-            points = <Points id={this.props.id} table={this.state.oldTable} region={this.props.region} />;
+            right = <Points id={this.props.id} table={this.state.oldTable} region={this.props.region} />;
         }
 
         return (
@@ -101,12 +105,8 @@ class Table extends Component {
                             <div key={index} className={classes.Value}>{value}</div> :
                             <div key={index} className={classes.Cell} onClick={() => this.updateValue(index)}>{value}</div>
                         )}
-                    </div>
-                    <div className={classes.Buttons}>
-                        {reset}
-                        {save}
-                        {points}
-                    </div>
+                    </div>    
+                    {right}
                 </div>
                 {dice}
             </div>
