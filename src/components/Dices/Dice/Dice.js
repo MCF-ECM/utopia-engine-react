@@ -1,11 +1,9 @@
 import React from 'react';
 
-import classes from "./Dice.module.css";
-
 
 const dice = (props) => {
     return (
-        <span className={classes.Dice} style={props.style}>{props.value}</span>
+        <img src={`/images/Dices/Dice ${props.value}.png`} alt={`${props.value}`} style={{width: 50, height:50}} />
     );
 }
 

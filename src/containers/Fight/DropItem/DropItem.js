@@ -38,7 +38,9 @@ class DropItem extends Component {
             <div className={classes.DropItem}>
                 <p>Vous avez battu le monster.</p>
                 <p>{message}</p>
-                <Dice style={{margin: 'auto', marginBottom: 15}} value={this.state.dice}/>
+                <div>
+                    <Dice style={{margin: 'auto', marginBottom: 15}} value={this.state.dice}/>
+                </div>
                 {button}
             </div>
         );
