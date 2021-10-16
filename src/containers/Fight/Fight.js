@@ -6,6 +6,7 @@ import Background from '../../components/UI/Background/Background';
 import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
 import DropItem from './DropItem/DropItem';
+import Help from '../../components/UI/Help/Help';
 import * as actions from '../../store/actions';
 import classes from './Fight.module.css';
 import { getRandomDice } from '../../shared/utility';
@@ -42,6 +43,7 @@ class Fight extends Component {
     render() {
         let redirect = null;
         let next = null;
+        let winCondition, hitCondition;
 
         if (this.props.monster === "") {
             redirect = <Redirect to="/search" />;
@@ -58,9 +60,22 @@ class Fight extends Component {
             next = <DropItem level={this.props.level}/>;
         }
 
+        if (this.props.level === 1) {
+            hitCondition = '1';
+            winCondition = '5 ou 6';
+        } else {
+            hitCondition = `moins de ${this.props.level}`;
+            winCondition = '6';
+        }
+
         return (
             <Background>
                 {redirect}
+                <Help color={this.props.color}>
+                    <div>Lancer les dés.</div>
+                    <div>Pour chaque dé, si vous obtenez {hitCondition}, alors le monstre réussira à vous blesser et vous perdez un point de vie, et si vous obtenez {winCondition} alors vous ferez fuir le monstre.</div>
+                    <div style={{color: 'red'}}>Attention, dans le cas où les deux conditions mentionnées sont remplies, le monstre vous blessera avant de fuir.</div>
+                </Help>
                 <h2 style={{color: this.props.color}}>{this.props.monster} (niveau {this.props.level})</h2>
                 <Dices
                     dices={this.state.dices}

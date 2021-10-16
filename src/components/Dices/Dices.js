@@ -18,6 +18,6 @@ const dices = (props) => {
             </div>
         </div>
     );
-}
+};
 
 export default dices;

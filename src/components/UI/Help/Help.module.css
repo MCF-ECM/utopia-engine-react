@@ -1,0 +1,27 @@
+.Help {
+	float: right;
+	position:  relative;
+	margin: 5px 20px;
+}
+
+.Icon {
+	width: 24px;
+	cursor: help;
+}
+
+.Instructions {
+	display: none;
+}
+
+.Icon:hover + .Instructions {
+	display: block;
+	position: absolute;
+	background-color: white;
+	width: 200px;
+	right: 0px;
+	margin-top: 0;
+	border: solid 2px;
+	border-radius: 5px;
+	padding: 10px;
+	text-align: center;
+}

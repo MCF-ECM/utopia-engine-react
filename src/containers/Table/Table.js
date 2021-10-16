@@ -24,7 +24,7 @@ class Table extends Component {
         }
 
         this.setState({...this.state, dices: dices, position: 0});
-    }
+    };
 
     updateValue = (index) => {
         let table = [...this.state.table];
