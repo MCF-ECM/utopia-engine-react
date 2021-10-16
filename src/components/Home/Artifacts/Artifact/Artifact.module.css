@@ -1,0 +1,33 @@
+.Artifact{
+    position: relative;
+}
+
+.Artifact img {
+    width: 50px;
+    background-color: #fff;
+}
+
+.Unactivated:hover {
+    cursor: pointer;
+}
+
+.Label {
+    display: none;
+}
+
+.Label h3 {
+   margin: 0;
+}
+
+.Artifact img:hover + .Label {
+    display: block;
+    position: absolute;
+    right: 50px;
+    bottom: 50px;
+    width: max-content;
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid;
+    background-color: #fff;
+    text-align: center;
+}

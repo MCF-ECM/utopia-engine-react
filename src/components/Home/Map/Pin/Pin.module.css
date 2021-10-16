@@ -12,6 +12,7 @@
 
 .Pin:hover + .Label {
     display: block;
+    position: absolute;
     width: max-content;
     margin: -100px 30px;
     padding: 5px;

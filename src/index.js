@@ -6,16 +6,18 @@ import { BrowserRouter } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
+import inventoryReducer from './store/reducers/inventory';
 import lifeReducer from './store/reducers/life';
 import regionReducer from './store/reducers/region';
 
 
 const rootReducer = combineReducers({
+    inventory: inventoryReducer,
     life: lifeReducer,
     region: regionReducer,
 });
 
-const  store = createStore(rootReducer);
+const store = createStore(rootReducer);
 
 const app = (
     <Provider store={store}>

@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import * as actions from '../../../store/actions';
+import * as actions from '../../../../store/actions';
 import classes from './Pin.module.css';
 
 
@@ -22,13 +22,12 @@ const pin = (props) => {
             </h3>
         </span>
     );
-}
-
+};
 
 const mapDispatchToPros = (dispatch) => {
     return {
         updateRegion: (id, region, color) => dispatch(actions.updateRegion(id, region, color)),
-    }
-}
+    };
+};
 
 export default connect(null, mapDispatchToPros)(withRouter(pin));

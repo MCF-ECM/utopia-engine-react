@@ -1,4 +1,4 @@
-.Map {
+.Table {
     background-color: #fff;
     border-radius: 20px;
     padding: 20px;
@@ -6,43 +6,43 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    height: calc(100vh - 80px);
-    width: calc(100vh - 80px);
+    height: calc(100vh - 200px);
+    width: 360px;
     position: relative;
 }
 
-.Peak {
+.Balance {
     position: absolute;
-    top: 15%;
+    top: 20%;
     left: 15%;
 }
 
-.Wilds {
+.Mirror {
     position: absolute;
-    top: 25%;
-    right: 20%;
+    top: 20%;
+    right: 10%;
 }
 
-.Root {
+.Gate {
     position: absolute;
-    top: 45%;
-    left: 20%;
+    bottom: 25%;
+    left: 15%;
 }
 
-.Canyon {
+.Chassis {
     position: absolute;
-    top: 50%;
-    left: 52%;
+    top: 35%;
+    left: 45%;
 }
 
-.Ruined {
+.Lens {
     position: absolute;
     bottom: 15%;
-    left: 20%;
+    left: 40%;
 }
 
-.Maw {
+.Battery {
     position: absolute;
-    bottom: 15%;
+    bottom: 20%;
     right: 20%;
 }

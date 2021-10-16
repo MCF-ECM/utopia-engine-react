@@ -13,12 +13,12 @@ const life = (props) => {
             <div className={classes.Red} style={{width: width}}/>
         </div>
     );
-}
+};
 
 const mapStateToProps = (state) => {
     return {
         pv: state.life.pv,
     };
-}
+};
 
 export default connect(mapStateToProps)(life);

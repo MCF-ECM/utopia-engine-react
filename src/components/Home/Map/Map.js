@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Pin from '../../UI/Pin/Pin';
+import Pin from './Pin/Pin';
 import classes from './Map.module.css';
 
 
