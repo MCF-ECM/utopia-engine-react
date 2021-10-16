@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
-import Points from '../../components/Points/Points';
+import Points from '../../components/Search/Points/Points';
 import classes from './Table.module.css';
 import { getRandomDice } from '../../shared/utility';
 
@@ -17,11 +17,7 @@ class Table extends Component {
     };
 
     roll = () => {
-        const dices = [null, null];
-
-        for (let i = 0; i < 2; i++) {
-            dices[i] = getRandomDice();
-        }
+        const dices = [getRandomDice(), getRandomDice()];
 
         this.setState({...this.state, dices: dices, position: 0});
     };
@@ -69,7 +65,7 @@ class Table extends Component {
 
     render() {
         let dice = null;
-        let right = 
+        let right =
             <div className={classes.Buttons}>
                 <Button
                     style={{ backgroundColor: 'red' }}
@@ -83,7 +79,6 @@ class Table extends Component {
                 </Button>
             </div>
         ;
-                        
 
         if (this.state.oldTable.includes(null)) {
             dice =
@@ -105,7 +100,7 @@ class Table extends Component {
                             <div key={index} className={classes.Value}>{value}</div> :
                             <div key={index} className={classes.Cell} onClick={() => this.updateValue(index)}>{value}</div>
                         )}
-                    </div>    
+                    </div>
                     {right}
                 </div>
                 {dice}

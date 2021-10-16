@@ -2,9 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-import Button from '../UI/Button/Button';
-import * as actions from '../../store/actions/index';
+import Button from '../../UI/Button/Button';
+import * as actions from '../../../store/actions';
 import classes from './Points.module.css';
+import { diff } from '../../../shared/utility';
 
 
 const points = (props) => {
@@ -20,8 +21,7 @@ const points = (props) => {
             );
     }
 
-    const total = props.table[0] * 100 + props.table[1] * 10 + props.table[2]
-        - (props.table[3] * 100 + props.table[4] * 10 + props.table[5]);
+    const total = diff(props.table);
 
     let text, button;
 
