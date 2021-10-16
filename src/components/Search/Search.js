@@ -10,7 +10,7 @@ import Table from '../../containers/Table/Table';
 const search = (props) => {
     let redirect = null;
 
-    if (props.region === "") {
+    if (props.name === "") {
         redirect = <Redirect to="/" />;
     }
 
@@ -18,10 +18,10 @@ const search = (props) => {
         <Background title={props.name}>
             {redirect}
             <Help color={props.color}>
-                <div>Lancer les dés.</div>
-                <div>Puis affecter les résultats obtenus dans la grille.</div>
-                <div>Le but est d'obtenir le plus petit nombre positif en soustrant à la ligne du haut à celle du bas.</div>
-                <div style={{color: 'red'}}>Attention, si le nombre obtenu est trop grand ou négatif, alors vous attirerez un monster.</div>
+                Lancer les dés.<br/>
+                Puis affecter les résultats obtenus dans la grille.<br/>
+                Le but est d'obtenir le plus petit nombre positif en soustrant à la ligne du haut à celle du bas.<br/>
+                <span style={{color: 'red'}}>Attention, si le nombre obtenu est trop grand ou négatif, alors vous attirerez un monster.</span>
             </Help>
             <div>
                 <h2 style={{ color: props.color }}>{props.name}</h2>

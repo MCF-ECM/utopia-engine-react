@@ -72,9 +72,9 @@ class Fight extends Component {
             <Background>
                 {redirect}
                 <Help color={this.props.color}>
-                    <div>Lancer les dés.</div>
-                    <div>Pour chaque dé, si vous obtenez {hitCondition}, alors le monstre réussira à vous blesser et vous perdez un point de vie, et si vous obtenez {winCondition} alors vous ferez fuir le monstre.</div>
-                    <div style={{color: 'red'}}>Attention, dans le cas où les deux conditions mentionnées sont remplies, le monstre vous blessera avant de fuir.</div>
+                    Lancer les dés.<br/>
+                    Pour chaque dé, si vous obtenez {hitCondition}, alors le monstre réussira à vous blesser et vous perdez un point de vie, et si vous obtenez {winCondition} alors vous ferez fuir le monstre.<br/>
+                    <span style={{color: 'red'}}>Attention, dans le cas où les deux conditions mentionnées sont remplies, le monstre vous blessera avant de fuir.</span>
                 </Help>
                 <h2 style={{color: this.props.color}}>{this.props.monster} (niveau {this.props.level})</h2>
                 <Dices
