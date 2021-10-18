@@ -16,9 +16,10 @@
 .Icon:hover + .Instructions {
 	display: block;
 	position: absolute;
+	z-index: 1;
 	background-color: white;
 	width: 200px;
-	right: 0px;
+	right: 25px;
 	margin-top: 0;
 	border: solid 2px;
 	border-radius: 5px;
