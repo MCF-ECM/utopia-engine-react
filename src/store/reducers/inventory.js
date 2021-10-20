@@ -76,8 +76,31 @@ const initialState = [
     },
 ];
 
+
+const addArtifact = (state, action) => {
+    const newState = [...state];
+
+    if (newState[action.id].artifact.state === null) {
+        newState[action.id].artifact.state = action.state;
+
+        return newState; 
+    } else {
+        return addComponent(state, action);
+    }
+};
+
+const addComponent = (state, action) => {
+    const newState = [...state];
+
+    newState[action.id].component.quantity += 1;
+
+    return newState;
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
+        case actionTypes.ADD_ARTIFACT: return addArtifact(state, action);
+        case actionTypes.ADD_COMPONENT: return addComponent(state, action);
         case actionTypes.GAME_OVER: return initialState;
         default: return state;
     }

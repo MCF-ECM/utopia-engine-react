@@ -19,7 +19,22 @@ const points = (props) => {
                 },
                 (err) => {console.log(err)}
             );
-    }
+    };
+
+    const addArtifact = (state) => {
+        props.addArtifact(props.id, state);
+        props.history.push('/');
+    };
+
+    const addComponent = () => {
+        props.addComponent(props.id);
+        props.goBack();
+    };
+
+    const addComponentMap = () => {
+        props.addComponent(props.id);
+        props.history.push('/');
+    };
 
     const total = diff(props.table);
 
@@ -44,14 +59,17 @@ const points = (props) => {
         button = <Button onClick={() => metMonster(level)}>Combattre</Button>;
     } else if (total === 0) {
         text = `Vous avez trouvé un artéfact activé !`;
-        button = <Button>Récupérer l'artifact activé</Button>;
+        button = <Button onClick={() => addArtifact("activé")}>Récupérer</Button>;
     } else if (total < 11) {
         text = `Vous avez trouvé un artéfact inactivé !`;
-        button =
-            <Button>Récupérer l'artifact inactivé</Button>;
+        button = <Button onClick={() => addArtifact("inactivé")}>Récupérer</Button>;
     } else {
         text = `Vous avez trouvé un composant !`;
-        button = <Button>Récupérer le component</Button>;
+        button =
+            <div>
+                <Button onClick={addComponent} style={{margin: 10}}>Récupérer et contiuner</Button>
+                <Button onClick={addComponentMap} style={{margin: 10}}>Récupérer et changer de zone</Button>
+            </div>;
     }
 
     return (
@@ -61,11 +79,13 @@ const points = (props) => {
             {button}
         </div>
     );
-}
+};
 
 const mapDispatchToPros = (dispatch) => {
     return {
         updateMonster: (level, monster) => dispatch(actions.updateMonster(level, monster)),
+        addArtifact: (id, state) => dispatch(actions.addArtifact(id, state)),
+        addComponent: (id) => dispatch(actions.addComponent(id)),
     };
 };
 

@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 
 import Button from '../../../components/UI/Button/Button';
 import Dice from '../../../components/Dices/Dice/Dice';
+import * as actions from '../../../store/actions';
 import classes from './DropItem.module.css';
 import { getRandomDice } from '../../../shared/utility';
 
@@ -11,9 +12,20 @@ import { getRandomDice } from '../../../shared/utility';
 class DropItem extends Component {
     state = {dice: null};
 
-    goBack = () => this.props.history.push('/search');
+    goBack = (component = false) => {
+        if (component) {
+            this.props.addComponent(this.props.id);
+        }
 
-    goMap = () => this.props.history.push('/');
+        this.props.history.push('/search');
+    };
+
+    goMap = (component = false) => {
+        if (component) {
+            this.props.addComponent(this.props.id);
+        }
+        this.props.history.push('/');
+    };
 
     render() {
         let button;
@@ -24,12 +36,16 @@ class DropItem extends Component {
             message = 'Découvrez si le monster à laisser tomber un objet.';
         } else if (this.state.dice <= this.props.level) {
             message = 'Le monstre a laissé tomber un composant !';
-            button = <Button>Récupérer</Button>;
+            button =
+                <div>
+                    <Button onClick={() => this.goBack(true)} style={{margin: 10}}>Récupérer et repartir</Button>
+                    <Button onClick={() => this.goMap(true)} style={{margin: 10}}>Récupérer et changer de zone</Button>
+                </div>;
         } else {
             message = 'Le monstre n\'a laissé pas tomber de composant.';
             button =
                 <div>
-                    <Button onClick={this.goBack}>Repartir</Button>
+                    <Button onClick={this.goBack} style={{margin: 10}}>Repartir</Button>
                     <Button onClick={this.goMap} style={{margin: 10}}>Changer de zone</Button>
                 </div>;
         }
@@ -47,10 +63,10 @@ class DropItem extends Component {
     };
 }
 
-const mapStateToProps = (state) => {
+const mapDispatchToPros = (dispatch) => {
     return {
-        level: state.region.level,
+        addComponent: (id) => dispatch(actions.addComponent(id)),
     };
 };
 
-export default connect(mapStateToProps)(withRouter(DropItem));
+export default connect(null, mapDispatchToPros)(withRouter(DropItem));

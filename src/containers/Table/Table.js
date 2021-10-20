@@ -7,14 +7,16 @@ import classes from './Table.module.css';
 import { getRandomDice } from '../../shared/utility';
 
 
+const INITIAL_STATE = {
+    table: [null, null, null, null, null, null],
+    oldTable: [null, null, null, null, null, null],
+    changed: false,
+    dices: [null, null],
+    position: -1,
+};
+
 class Table extends Component {
-    state = {
-        table: [null, null, null, null, null, null],
-        oldTable: [null, null, null, null, null, null],
-        changed: false,
-        dices: [null, null],
-        position: -1,
-    };
+    state = INITIAL_STATE;
 
     roll = () => {
         const dices = [getRandomDice(), getRandomDice()];
@@ -63,6 +65,8 @@ class Table extends Component {
         });
     };
 
+    newTable = () => this.setState(INITIAL_STATE);
+
     render() {
         let dice = null;
         let right =
@@ -89,7 +93,14 @@ class Table extends Component {
                 />
             ;
         } else {
-            right = <Points id={this.props.id} table={this.state.oldTable} region={this.props.region} />;
+            right =
+                <Points
+                    id={this.props.id}
+                    table={this.state.oldTable}
+                    region={this.props.region}
+                    goBack={this.newTable}
+                />
+            ;
         }
 
         return (

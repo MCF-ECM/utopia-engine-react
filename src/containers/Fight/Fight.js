@@ -60,7 +60,7 @@ class Fight extends Component {
                 </div>
             ;
         } else if (this.state.win) {
-            next = <DropItem level={this.props.level}/>;
+            next = <DropItem id={this.props.id} level={this.props.level}/>;
         }
 
         if (this.props.level === 1) {
@@ -93,6 +93,7 @@ class Fight extends Component {
 
 const mapStateToProps = (state) => {
     return {
+        id: state.region.id,
         color: state.region.color,
         level: state.region.level,
         monster: state.region.monster,
