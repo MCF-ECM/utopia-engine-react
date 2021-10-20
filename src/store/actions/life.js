@@ -7,6 +7,12 @@ export const damage = () => {
     };
 };
 
+export const faint = () => {
+    return {
+        type: actionTypes.FAINT,
+    };
+};
+
 export const gameOver = () => {
     return {
         type: actionTypes.GAME_OVER,

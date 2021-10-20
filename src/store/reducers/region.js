@@ -30,6 +30,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.UPDATE_REGION: return updateRegion(state, action);
         case actionTypes.UPDATE_MONSTER: return updateMonster(state, action);
+        case actionTypes.FAINT: return initialState;
         case actionTypes.GAME_OVER: return initialState;
         default: return state;
     }

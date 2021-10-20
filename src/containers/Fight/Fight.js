@@ -13,7 +13,10 @@ import { getRandomDice } from '../../shared/utility';
 
 
 class Fight extends Component {
-    state = {win: false, dices: [null, null]}
+    state = {
+        win: false,
+        dices: [null, null],
+     };
 
     roll = () => {
         const dices = [null, null];
@@ -38,7 +41,7 @@ class Fight extends Component {
         }
 
         this.setState({...this.state, win: win, dices: dices});
-    }
+    };
 
     render() {
         let redirect = null;
@@ -53,7 +56,7 @@ class Fight extends Component {
             next =
                 <div className={classes.Faint}>
                     <p>Vous vous êtes évanoui et le monster est parti.</p>
-                    <Button>Se Reposer</Button>
+                    <Button onClick={this.props.faint}>Se Reposer</Button>
                 </div>
             ;
         } else if (this.state.win) {
@@ -80,7 +83,7 @@ class Fight extends Component {
                 <Dices
                     dices={this.state.dices}
                     roll={this.roll}
-                    reset={!this.state.win}
+                    reset={!this.state.win && this.props.pv !== 0}
                 />
                 {next}
             </Background>
@@ -100,6 +103,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToPros = (dispatch) => {
     return {
         damage: () => dispatch(actions.damage()),
+        faint: () => dispatch(actions.faint()),
     };
 };
 
