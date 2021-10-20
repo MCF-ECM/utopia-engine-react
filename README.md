@@ -1,6 +1,6 @@
 # Utopia Engine
 
-## Table of Contents
+## Sommaire
 1. [Description du projet](#description-du-projet)
 2. [Technologies](#technologies)
 3. [Installation](#installation)
@@ -17,6 +17,7 @@ Vous jouez le rôle d'un vieil artificier nommé Isodoros qui tente de reconstru
 ## Technologies
 * [React](https://fr.reactjs.org/) : version 17.0.2
 * [Redux](https://redux.js.org/) : version 4.1.1
+* [React Router Dom](https://www.npmjs.com/package/react-router-dom) : version 5.3.0
 
 ## Installation
 Vous devez avoir [Node.js](https://nodejs.org/fr/) d'installer sur votre machine pour pouvoir lancer le projet en local, et avoir accès à un gestion de paquets de **Node.js** comme [yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/).
