@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+import ActivationTable from '../../components/ActivationTable/ActivationTable';
 import Background from '../../components/UI/Background/Background';
 import Button from '../../components/UI/Button/Button';
 import Dices from '../../components/Dices/Dices';
@@ -131,48 +132,34 @@ class Activation extends Component {
                     Lancer les dés.<br/>
                 </Help>
                 <h2 style={{color: this.props.color}}>{this.props.artifact}</h2>
+                <div style={{float: 'right'}}>{this.state.charge}</div>
                 {this.state.tables.map((table, index) =>
-                    <div  key={`table${index}`}>
-                        <div className={classes.Bloc}>
-                            <div>
-                                <div className={classes.Table}>
-                                    {this.state.tentative === index
-                                        ?
-                                            this.state.table.map((value, i) => value ?
-                                                <div key={i} className={classes.Value}>{value}</div> :
-                                                <div key={i} className={classes.Cell} onClick={() => this.updateValue(i)}>
-                                                    {value}
-                                                </div>
-                                            )
-                                        :
-                                            table.map((value, i) => value ?
-                                            <div key={i} className={classes.Value}>{value}</div> :
-                                            <div key={i} className={classes.Cell} onClick={() => this.updateValue(i)}>
-                                                {value}
-                                            </div>
-                                        )
-                                    }
-                                </div>
-                                <div className={classes.Results}>
-                                    {this.state.results[index].map((result, i) =>
-                                        <div key={i} className={classes.Result}>{result}</div>
-                                    )}
-                                </div>
-                            </div>
-                            <div className={classes.Buttons}>
-                                <Button
-                                    style={{ backgroundColor: 'red' }}
-                                    onClick={this.reset}
-                                    disabled={this.state.position < 1 || this.state.tentative !== index}
-                                >
-                                    Effacer
-                                </Button>
-                                <Button onClick={this.save} disabled={this.state.position < 2 || this.state.tentative !== index}>
-                                    Sauvegarder
-                                </Button>
-                            </div>
-                        </div>
-                        {this.state.tentative === index && this.state.tentative !== 2 && this.props.pv > 0
+                    <div>
+                        {this.state.tentative === index
+                            ?
+                                <ActivationTable
+                                    key={index}
+                                    table={this.state.table}
+                                    update={this.updateValue}
+                                    results={this.state.results[index]}
+                                    reset={this.reset}
+                                    canReset={this.state.position > 0}
+                                    save={this.save}
+                                    canSave={this.state.position > 1}
+                                />
+                            :
+                                <ActivationTable
+                                    key={index}
+                                    table={this.state.tables[index]}
+                                    update={() => {}}
+                                    results={this.state.results[index]}
+                                    rest={() => {}}
+                                    canReset={false}
+                                    save={() => {}}
+                                    canSave={false}
+                                />
+                        }
+                        {this.state.tentative === index && this.props.pv > 0
                             ?
                                 <Dices
                                     dices={this.state.dices}
