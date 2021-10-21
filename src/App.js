@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Redirect, Switch } from 'react-router-dom';
 
+import Activation from './containers/Activation/Activation';
 import Fight from './containers/Fight/Fight';
 import GameOver from './components/GameOver/GameOver';
 import Home from './components/Home/Home';
@@ -13,6 +14,7 @@ class App extends Component {
         return (
             <Layout>
                 <Switch>
+                    <Route path="/activation" exact component={Activation} />
                     <Route path="/fight" exact component={Fight} />
                     <Route path="/search" exact component={Search} />
                     <Route path="/" exact component={Home} />

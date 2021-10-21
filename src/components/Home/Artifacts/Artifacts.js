@@ -20,6 +20,7 @@ const artifacts = (props) => {
             {props.inventory.map((region, index) =>
                 <span key={index} className={POSITIONS[index]}>
                     <Artifact
+                        id={region.index}
                         artifact={region.artifact.name}
                         color={region.color}
                         state={region.artifact.state}
