@@ -26,10 +26,20 @@ const updateMonster = (state, action) => {
     };
 };
 
+const updateArtifact = (state, action) => {
+    return {
+        ...state,
+        id: action.id,
+        artifact: action.artifact,
+        color: action.color,
+    };
+};
+
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case actionTypes.UPDATE_REGION: return updateRegion(state, action);
         case actionTypes.UPDATE_MONSTER: return updateMonster(state, action);
+        case actionTypes.UPDATE_ARTIFACT: return updateArtifact(state, action);
         case actionTypes.FAINT: return initialState;
         case actionTypes.GAME_OVER: return initialState;
         default: return state;

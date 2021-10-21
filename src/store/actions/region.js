@@ -17,3 +17,12 @@ export const updateMonster = (level, monster) => {
         monster: monster,
     };
 };
+
+export const updateArtifact = (id, artifact, color) => {
+    return {
+        type: actionTypes.UPDATE_ARTIFACT,
+        id: id,
+        artifact: artifact,
+        color: color,
+    };
+};

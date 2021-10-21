@@ -8,10 +8,10 @@ import classes from './Artifact.module.css';
 
 const artifact = (props) => {
     const open = () => {
-        props.updateRegion(props.id, "", props.color);
+        props.updateArtifact(props.id, props.artifact, props.color);
         props.history.push('/activation');
     };
-    
+
     return (
         <span className={classes.Artifact}>
             <img
@@ -29,7 +29,7 @@ const artifact = (props) => {
 
 const mapDispatchToPros = (dispatch) => {
     return {
-        updateRegion: (id, region, color) => dispatch(actions.updateRegion(id, region, color)),
+        updateArtifact: (id, artifact, color) => dispatch(actions.updateArtifact(id, artifact, color)),
     };
 };
 
