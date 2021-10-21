@@ -62,3 +62,7 @@
     flex-direction: column-reverse;
     justify-content: space-evenly;
 }
+
+.Faint {
+    text-align: center;
+}
