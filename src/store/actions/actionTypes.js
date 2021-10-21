@@ -4,6 +4,7 @@ export const UPDATE_ARTIFACT = 'UPDATE_ARTIFACT';
 
 export const ADD_ARTIFACT = 'ADD_ARTIFACT';
 export const ADD_COMPONENT = 'ADD_COMPONENT';
+export const ACTIVATE_ARTIFACT = 'ACTIVATE_ARTIFACT';
 
 export const DAMAGE = 'DAMAGE';
 export const FAINT = 'FAINT';

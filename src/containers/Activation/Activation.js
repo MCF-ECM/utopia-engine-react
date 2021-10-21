@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 
 import ActivationTable from '../../components/ActivationTable/ActivationTable';
 import Background from '../../components/UI/Background/Background';
@@ -27,6 +27,7 @@ class Activation extends Component {
             [null, null, null, null],
         ],
         tentative: 0,
+        charge: 0,
      };
 
     roll = () => {
@@ -68,6 +69,7 @@ class Activation extends Component {
     save = () => {
         let tentative = this.state.tentative;
         let table = [...this.state.table];
+        let charge = this.state.charge;
         const tables = [...this.state.tables];
         const results = [...this.state.results];
 
@@ -80,6 +82,10 @@ class Activation extends Component {
 
                     if (results[this.state.tentative][i] < 0) {
                         this.props.damage();
+                    } else if (results[this.state.tentative][i] === 4) {
+                        charge++;
+                    } else if (results[this.state.tentative][i] === 5) {
+                        charge += 2;
                     }
                 }
             }
@@ -98,6 +104,7 @@ class Activation extends Component {
             position: -1,
             tentative: tentative,
             results: results,
+            charge: charge,
         });
     };
 
@@ -108,17 +115,29 @@ class Activation extends Component {
         position: 0,
     });
 
+    activate = () => {
+        this.props.activate(this.props.id);
+        this.props.history.push('/');
+    };
+
     render() {
         let redirect = null;
-        let rest = null;
+        let next = null;
 
         if (this.props.id === -1) {
             redirect = <Redirect to="/" />;
         }
 
-        if (this.props.pv === 0) {
-            rest =
-                <div className={classes.Faint}>
+        if (this.state.charge > 3) {
+            next =
+                <div className={classes.Next}>
+                    <p>Vous avez assez d'énergie pour activer l'artéfact !</p>
+                    <Button onClick={this.activate}>Activer</Button>
+                </div>
+            ;
+        } else if (this.props.pv === 0) {
+            next =
+                <div className={classes.Next}>
                     <p>Vous vous êtes évanoui et le monster est parti.</p>
                     <Button onClick={this.props.faint}>Se Reposer</Button>
                 </div>
@@ -134,11 +153,10 @@ class Activation extends Component {
                 <h2 style={{color: this.props.color}}>{this.props.artifact}</h2>
                 <div style={{float: 'right'}}>{this.state.charge}</div>
                 {this.state.tables.map((table, index) =>
-                    <div>
+                    <div key={index}>
                         {this.state.tentative === index
                             ?
                                 <ActivationTable
-                                    key={index}
                                     table={this.state.table}
                                     update={this.updateValue}
                                     results={this.state.results[index]}
@@ -149,17 +167,10 @@ class Activation extends Component {
                                 />
                             :
                                 <ActivationTable
-                                    key={index}
-                                    table={this.state.tables[index]}
-                                    update={() => {}}
                                     results={this.state.results[index]}
-                                    rest={() => {}}
-                                    canReset={false}
-                                    save={() => {}}
-                                    canSave={false}
                                 />
                         }
-                        {this.state.tentative === index && this.props.pv > 0
+                        {this.state.tentative === index && this.props.pv > 0 && this.state.charge < 4
                             ?
                                 <Dices
                                     dices={this.state.dices}
@@ -170,7 +181,7 @@ class Activation extends Component {
                         }
                     </div>
                 )}
-                {rest}
+                {next}
             </Background>
         );
     };
@@ -179,6 +190,7 @@ class Activation extends Component {
 const mapStateToProps = (state) => {
     return {
         id: state.region.id,
+        artifact: state.region.artifact,
         color: state.region.color,
         pv: state.life.pv,
     };
@@ -188,7 +200,8 @@ const mapDispatchToPros = (dispatch) => {
     return {
         damage: () => dispatch(actions.damage()),
         faint: () => dispatch(actions.faint()),
+        activate: (id) => dispatch(actions.activateArtifact(id)),
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToPros)(Activation);
+export default connect(mapStateToProps, mapDispatchToPros)(withRouter(Activation));

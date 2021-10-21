@@ -8,14 +8,18 @@ const activationTable = (props) => {
     return (
         <div className={classes.Bloc}>
             <div>
-                <div className={classes.Table}>
-                    {props.table.map((value, i) => value ?
-                        <div key={i} className={classes.Value}>{value}</div> :
-                        <div key={i} className={classes.Cell} onClick={() => props.update(i)}>
-                            {value}
+                {props.table !== undefined
+                    ?
+                        <div className={classes.Table}>
+                            {props.table.map((value, i) => value ?
+                                <div key={i} className={classes.Value}>{value}</div> :
+                                <div key={i} className={classes.Cell} onClick={() => props.update(i)}>
+                                    {value}
+                                </div>
+                            )}
                         </div>
-                    )}
-                </div>
+                    : null
+                }
                 <div className={classes.Results}>
                     {props.results.map((result, i) => <div key={i} className={classes.Result}>{result}</div>)}
                 </div>

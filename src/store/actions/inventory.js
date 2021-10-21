@@ -2,9 +2,6 @@ import * as actionTypes from './actionTypes';
 
 
 export const addArtifact = (id, state) => {
-    console.log(id);
-    console.log(state);
-
     return {
         type: actionTypes.ADD_ARTIFACT,
         id: id,
@@ -15,6 +12,13 @@ export const addArtifact = (id, state) => {
 export const addComponent = (id) => {
     return {
         type: actionTypes.ADD_COMPONENT,
+        id: id,
+    };
+};
+
+export const activateArtifact = (id) => {
+    return {
+        type: actionTypes.ACTIVATE_ARTIFACT,
         id: id,
     };
 };
