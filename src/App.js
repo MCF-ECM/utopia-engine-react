@@ -7,6 +7,7 @@ import GameOver from './components/GameOver/GameOver';
 import Home from './components/Home/Home';
 import Layout from './hoc/Layout/Layout';
 import Search from './components/Search/Search';
+import Win from './components/Win/Win';
 
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
                     <Redirect to="/" />
                 </Switch>
                 <GameOver />
+                <Win />
             </Layout>
         );
     };
