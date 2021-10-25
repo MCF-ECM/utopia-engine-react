@@ -5,6 +5,7 @@ import { Redirect, withRouter } from 'react-router-dom';
 import ActivationTable from '../../components/ActivationTable/ActivationTable';
 import Background from '../../components/UI/Background/Background';
 import Button from '../../components/UI/Button/Button';
+import Charge from '../../components/ActivationTable/Charge/Charge';
 import Dices from '../../components/Dices/Dices';
 import Help from '../../components/UI/Help/Help';
 import * as actions from '../../store/actions';
@@ -148,10 +149,17 @@ class Activation extends Component {
             <Background>
                 {redirect}
                 <Help color={this.props.color}>
-                    Lancer les dés.<br/>
+                    Lancer les dés et placer-les dans le tableau.<br/>
+                    Le but est d'obtenir le plus grand chiffre en soustrant à une cellule supérieure la cellule juste en-dessous.<br/>
+                    Obtenez 5 et gagner 2 charges.<br/>
+                    Obtenez 4 et gagner 1 charge.<br/>
+                    Obtenez 0 et les cellules correspondantes seront réinitialisées.<br/>
+                    Obtenez un chiffre négatif et perder un point de vie.<br/>
+                    Pour activer l'artéfact, obtenez 4 charges ou rester en vie sans vous évanouir après avoir complété les deux tableaux.
+
                 </Help>
                 <h2 style={{color: this.props.color}}>{this.props.artifact}</h2>
-                <div style={{float: 'right'}}>{this.state.charge}</div>
+                <Charge charge={this.state.charge} />
                 {this.state.tables.map((table, index) =>
                     <div key={index}>
                         {this.state.tentative === index
