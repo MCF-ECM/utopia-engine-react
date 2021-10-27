@@ -1,4 +1,4 @@
-# Utopia Engine
+# Utopia Engine (*React*)
 
 ## Sommaire
 1. [Description du projet](#description-du-projet)
@@ -20,16 +20,28 @@ Vous jouez le rôle d'un vieil artificier nommé Isodoros qui tente de reconstru
 * [React Router Dom](https://www.npmjs.com/package/react-router-dom) : version 5.3.0
 
 ## Installation
-Vous devez avoir [Node.js](https://nodejs.org/fr/) d'installer sur votre machine pour pouvoir lancer le projet en local, et avoir accès à un gestion de paquets de **Node.js** comme [yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/).
+Vous devez avoir [Node.js](https://nodejs.org/fr/) d'installer sur votre machine pour pouvoir lancer le projet en local, et avoir accès à un gestion de paquets de *Node.js* comme [yarn](https://yarnpkg.com/) ou [npm](https://www.npmjs.com/).
 
-Note : Les commandes ci-dessous peuvent être exécutées avec *npm* à la place de *yarn*.
+>Les commandes ci-dessous peuvent être exécutées avec *npm* ou *yarn*.
 
 Pour installer toutes les dépendences nécessaires : 
-```
+~~~ shell
+$ npm install
+// OU
 $ yarn install
-```
+~~~
 
 Pour lancer un server qui sera accessible sur [http://localhost:3000](http://localhost:3000) :
-```
+~~~ shell
+$ npm start
+// OU
 $ yarn start
-```
+~~~
+
+## Build
+Build un project *React* permet de l'obtenir sous forme d'un site statique.
+~~~ shell
+$ yarn build
+// OU
+$ npm build 
+~~~
