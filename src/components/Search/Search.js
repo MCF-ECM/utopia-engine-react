@@ -19,8 +19,9 @@ const search = (props) => {
             {redirect}
             <Help color={props.color}>
                 Lancer les dés.<br/>
-                Puis affecter les résultats obtenus dans la grille.<br/>
-                Le but est d'obtenir le plus petit nombre positif en soustrant à la ligne du haut à celle du bas.<br/>
+                Puis affecter les résultats obtenus dans le tableau.<br/>
+                Le but est d'obtenir le plus petit nombre positif en soustrayant à la ligne du haut à celle du bas.<br/>
+                Le fruit de votre recherche dépendra de cette différence.<br/>
                 <span style={{color: 'red'}}>Attention, si le nombre obtenu est trop grand ou négatif, alors vous attirerez un monster.</span>
             </Help>
             <div>

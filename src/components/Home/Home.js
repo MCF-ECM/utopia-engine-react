@@ -9,8 +9,9 @@ const home = () => {
     return (
         <Background title="Map">
             <Help color="#463424">
-                Veuillez choisir une zone pour partir à la recherche des artéfacts pour compléter
-                 l'Utopia Engine et arrêter la fin du monde.
+                Partez à la recherche des artéfacts pour compléter l'Utopia Engine et arrêter la fin du monde.<br/>
+                Choisissez une zone de recherche pour tenter de trouver un artéfact.<br/>
+                Si vous trouver un artéfact inactivé, vous pourrez l'activer en le sélectionnant ci-contre.
             </Help>
             <Artifacts />
         </Background>

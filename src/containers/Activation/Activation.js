@@ -150,13 +150,12 @@ class Activation extends Component {
                 {redirect}
                 <Help color={this.props.color}>
                     Lancer les dés et placer-les dans le tableau.<br/>
-                    Le but est d'obtenir le plus grand chiffre en soustrant à une cellule supérieure la cellule juste en-dessous.<br/>
-                    Obtenez 5 et gagner 2 charges.<br/>
-                    Obtenez 4 et gagner 1 charge.<br/>
+                    Le but est d'obtenir le plus grand chiffre en soustrayant à une cellule supérieure la cellule juste en-dessous.<br/>
+                    Obtenez 5 et gagnez 2 charges.<br/>
+                    Obtenez 4 et gagnez 1 charge.<br/>
                     Obtenez 0 et les cellules correspondantes seront réinitialisées.<br/>
                     Obtenez un chiffre négatif et perder un point de vie.<br/>
                     Pour activer l'artéfact, obtenez 4 charges ou rester en vie sans vous évanouir après avoir complété les deux tableaux.
-
                 </Help>
                 <h2 style={{color: this.props.color}}>{this.props.artifact}</h2>
                 <Charge charge={this.state.charge} />

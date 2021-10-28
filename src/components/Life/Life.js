@@ -5,7 +5,7 @@ import classes from './Life.module.css';
 
 
 const life = (props) => {
-    const width = 20 * (6 - props.pv);
+    const width = 20 * (6 - Math.max(0, props.pv));
 
     return (
         <div className={classes.Life}>
