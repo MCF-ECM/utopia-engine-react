@@ -38,8 +38,8 @@ $ npm start
 $ yarn start
 ~~~
 
-## Build
-Build un project *React* permet de l'obtenir sous forme d'un site statique.
+## Compiler
+Compiler un project *React* permet de l'obtenir sous forme d'un site statique.
 ~~~ shell
 $ yarn build
 // OU
