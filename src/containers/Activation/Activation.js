@@ -143,6 +143,12 @@ class Activation extends Component {
                     <Button onClick={this.props.faint}>Se Reposer</Button>
                 </div>
             ;
+        } else if (this.state.tentative > 1) {
+            next =
+                <div className={classes.Next}>
+                    <Button onClick={this.activate}>Activer</Button>
+                </div>
+            ;
         }
 
         return (
